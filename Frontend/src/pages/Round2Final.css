@@ -1,0 +1,84 @@
+.round2-final-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.round2-final-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.round2-final-card {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(10, 15, 30, 0.85);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.08);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.round2-final-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6c757d;
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.round2-final-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.round2-final-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.round2-final-title.completed {
+  color: #00f0ff;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+.round2-final-title.time-up {
+  color: #ff3366;
+  text-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+}
+
+.round2-final-text {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.round2-final-subtext {
+  font-size: 1.05rem;
+  color: #a0a0a0;
+}

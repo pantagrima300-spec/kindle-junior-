@@ -1,0 +1,423 @@
+const allQuestions: Question[] = [
+  /* ---------------------- CASE STUDY QUESTIONS ---------------------- */
+  {
+    id: 101,
+    type: "CASE STUDY",
+    title: "Intersection Traffic Override",
+    tags: ["ARRAY", "CONDITIONS", "PRIORITY"],
+    statement: [
+      "A smart city traffic camera system counts the number of vehicles waiting in four directions at an intersection.",
+      "The input is always an array of four integers in a fixed order: [North, South, East, West].",
+      "The system must determine which direction gets the green light based on the highest vehicle count.",
+      "If all lanes have 0 traffic, return 'IDLE'.",
+      "If there is a tie for the highest traffic, prioritize the direction that appears first in the standard order (North > South > East > West).",
+    ],
+    input: "[N, S, E, W]",
+    output: "Print the direction with the highest vehicle count: North, South, East, or West. Print IDLE if all four values are 0.",
+    constraints: [
+      "Input contains exactly four integers.",
+      "0 ≤ N, S, E, W ≤ 10⁶",
+      "North has highest priority, followed by South, East, then West.",
+      "If all four values are 0, output IDLE.",
+    ],
+    publicTestCases: [
+      { input: "[10, 45, 30, 25]", output: "South" },
+      { input: "[0, 0, 0, 0]", output: "IDLE" },
+      { input: "[50, 20, 50, 10]", output: "North" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int n, s, e, w;\n    scanf("%d %d %d %d", &n, &s, &e, &w);\n    // Write your solution here\n    return 0;\n}`,
+      Python: `values = list(map(int, input().split()))\n# Write your solution here\n`,
+      Java: `import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int s = sc.nextInt();\n        int e = sc.nextInt();\n        int w = sc.nextInt();\n        // Write your solution here\n    }\n}`,
+    },
+  },
+  {
+    id: 102,
+    type: "CASE STUDY",
+    title: "Employee Login Streak",
+    tags: ["ARRAY", "LOOPS", "STREAK"],
+    statement: [
+      "An HR management software tracks an employee's daily login status over a given period.",
+      "The data is provided as an array of 1s (logged in) and 0s (absent or weekend).",
+      "Write a program to find the length of the longest consecutive streak of logged-in days.",
+    ],
+    input: "An array containing only 0s and 1s.",
+    output: "Print the length of the longest consecutive sequence of 1s. If there are no 1s, print 0.",
+    constraints: [
+      "Array contains only 0 and 1.",
+      "1 ≤ N ≤ 10⁵",
+      "A 0 resets the current login streak.",
+      "Return the maximum streak length.",
+    ],
+    publicTestCases: [
+      { input: "[1, 1, 0, 1, 1, 1, 0]", output: "3" },
+      { input: "[0, 0, 0, 0, 0]", output: "0" },
+      { input: "[1, 0, 1, 0, 1, 0, 1]", output: "1" },
+      { input: "[1, 1, 1, 1, 1]", output: "5" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int n;\n    scanf("%d", &n);\n    // Write your solution here\n    return 0;\n}`,
+      Python: `n = int(input())\na = list(map(int, input().split()))\n# Write your solution here\n`,
+      Java: `import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        // Write your solution here\n    }\n}`,
+    },
+  },
+
+  /* ---------------------- C DEBUGGING QUESTIONS ---------------------- */
+  {
+    id: 1,
+    type: "DEBUGGING",
+    languageRequirement: "C",
+    title: "Leap Year Checker (C)",
+    tags: ["C", "CONDITIONALS", "LOGIC"],
+    statement: [
+      "Check whether a given year is a leap year.",
+      "Fix the logic in the code below so it accurately evaluates leap years.",
+    ],
+    input: "A single integer year.",
+    output: "Print 'Leap Year' or 'Not Leap Year'.",
+    constraints: ["1 ≤ year ≤ 10000"],
+    publicTestCases: [
+      { input: "1900", output: "Not Leap Year" },
+      { input: "2000", output: "Leap Year" },
+      { input: "2024", output: "Leap Year" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int year;\n    scanf("%d", &year);\n    if (year % 4 == 0 || year % 100 == 0 && year % 400 != 0) {\n        printf("Leap Year");\n    } else {\n        printf("Not Leap Year");\n    }\n    return 0;\n}`,
+      Python: "",
+      Java: "",
+    },
+  },
+  {
+    id: 2,
+    type: "DEBUGGING",
+    languageRequirement: "C",
+    title: "Quadrant Finder (C)",
+    tags: ["C", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Find the quadrant of a given point (x, y).",
+      "Fix the logic in the code below to determine the correct quadrant.",
+    ],
+    input: "Two integers x and y separated by a space.",
+    output: "Print 'Q1', 'Q2', 'Q3', 'Q4', or 'Origin'.",
+    constraints: ["-10000 ≤ x, y ≤ 10000"],
+    publicTestCases: [
+      { input: "-3 -5", output: "Q3" },
+      { input: "4 -2", output: "Q4" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int x, y;\n    scanf("%d %d", &x, &y);\n    if (x > 0 && y > 0)\n        printf("Q1");\n    else if (x < 0 && y > 0)\n        printf("Q2");\n    else if (x < 0 || y < 0)\n        printf("Q3");\n    else if (x > 0 && y < 0)\n        printf("Q4");\n    else\n        printf("Origin");\n    return 0;\n}`,
+      Python: "",
+      Java: "",
+    },
+  },
+  {
+    id: 3,
+    type: "DEBUGGING",
+    languageRequirement: "C",
+    title: "Max of Three Numbers (C)",
+    tags: ["C", "CONDITIONALS", "COMPARISON"],
+    statement: [
+      "Find the maximum among three numbers.",
+      "Fix the code logic to correctly compute and print the maximum value.",
+    ],
+    input: "Three integers a, b, and c.",
+    output: "Print the maximum integer.",
+    constraints: ["-10⁹ ≤ a, b, c ≤ 10⁹"],
+    publicTestCases: [
+      { input: "10 25 15", output: "25" },
+      { input: "30 10 5", output: "30" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int a, b, c;\n    scanf("%d %d %d", &a, &b, &c);\n    int max = a;\n    if (b > max)\n        max = b;\n    if (c > b)\n        max = c;\n    printf("%d", max);\n    return 0;\n}`,
+      Python: "",
+      Java: "",
+    },
+  },
+  {
+    id: 4,
+    type: "DEBUGGING",
+    languageRequirement: "C",
+    title: "Electricity Bill Calculator (C)",
+    tags: ["C", "CONDITIONALS", "MATH"],
+    statement: [
+      "Calculate electricity bill based on slabs: 0-100 units = $5/unit, 101-200 units = $7/unit, >200 units = $10/unit.",
+      "Fix the implementation to correctly calculate the total bill for all slabs.",
+    ],
+    input: "A single integer units.",
+    output: "Print total bill formatted to 2 decimal places.",
+    constraints: ["0 ≤ units ≤ 100000"],
+    publicTestCases: [
+      { input: "150", output: "850.00" },
+      { input: "250", output: "1700.00" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int units;\n    double bill = 0;\n    scanf("%d", &units);\n    if (units > 200) {\n        bill = units * 10;\n    } else if (units > 100) {\n        bill = units * 7;\n    } else {\n        bill = units * 5;\n    }\n    printf("%.2f", bill);\n    return 0;\n}`,
+      Python: "",
+      Java: "",
+    },
+  },
+  {
+    id: 5,
+    type: "DEBUGGING",
+    languageRequirement: "C",
+    title: "Valid Triangle & Type (C)",
+    tags: ["C", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Check if a triangle is valid and classify it as Equilateral, Isosceles, or Scalene.",
+      "Fix the logic so that invalid side combinations and types are properly identified.",
+    ],
+    input: "Three side lengths a, b, and c.",
+    output: "Print 'Equilateral', 'Isosceles', 'Scalene', or 'Invalid'.",
+    constraints: ["1 ≤ a, b, c ≤ 10000"],
+    publicTestCases: [
+      { input: "5 5 5", output: "Equilateral" },
+      { input: "1 2 10", output: "Invalid" },
+    ],
+    starter: {
+      C: `#include <stdio.h>\n\nint main() {\n    int a, b, c;\n    scanf("%d %d %d", &a, &b, &c);\n    if (a + b > c) {\n        if (a == b || b == c) {\n            printf("Isosceles");\n        } else if (a == b && b == c) {\n            printf("Equilateral");\n        } else {\n            printf("Scalene");\n        }\n    } else {\n        printf("Invalid");\n    }\n    return 0;\n}`,
+      Python: "",
+      Java: "",
+    },
+  },
+
+  /* ---------------------- JAVA DEBUGGING QUESTIONS ---------------------- */
+  {
+    id: 6,
+    type: "DEBUGGING",
+    languageRequirement: "Java",
+    title: "Leap Year Checker (Java)",
+    tags: ["JAVA", "CONDITIONALS", "LOGIC"],
+    statement: [
+      "Check whether a given year is a leap year.",
+      "Fix the code logic to accurately determine leap years.",
+    ],
+    input: "A single integer year.",
+    output: "Print 'Leap Year' or 'Not Leap Year'.",
+    constraints: ["1 ≤ year ≤ 10000"],
+    publicTestCases: [
+      { input: "1900", output: "Not Leap Year" },
+      { input: "2000", output: "Leap Year" },
+      { input: "2024", output: "Leap Year" },
+    ],
+    starter: {
+      C: "",
+      Python: "",
+      Java: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int year = sc.nextInt();\n        if (year % 4 == 0 || year % 100 == 0 && year % 400 != 0) {\n            System.out.println("Leap Year");\n        } else {\n            System.out.println("Not Leap Year");\n        }\n    }\n}`,
+    },
+  },
+  {
+    id: 7,
+    type: "DEBUGGING",
+    languageRequirement: "Java",
+    title: "Quadrant Finder (Java)",
+    tags: ["JAVA", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Find the quadrant of a given point (x, y).",
+      "Fix the logic in the code below to determine the correct quadrant.",
+    ],
+    input: "Two integers x and y separated by a space.",
+    output: "Print 'Q1', 'Q2', 'Q3', 'Q4', or 'Origin'.",
+    constraints: ["-10000 ≤ x, y ≤ 10000"],
+    publicTestCases: [
+      { input: "-3 -5", output: "Q3" },
+      { input: "4 -2", output: "Q4" },
+    ],
+    starter: {
+      C: "",
+      Python: "",
+      Java: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int x = sc.nextInt();\n        int y = sc.nextInt();\n        if (x > 0 && y > 0)\n            System.out.println("Q1");\n        else if (x < 0 && y > 0)\n            System.out.println("Q2");\n        else if (x < 0 || y < 0)\n            System.out.println("Q3");\n        else if (x > 0 && y < 0)\n            System.out.println("Q4");\n        else\n            System.out.println("Origin");\n    }\n}`,
+    },
+  },
+  {
+    id: 8,
+    type: "DEBUGGING",
+    languageRequirement: "Java",
+    title: "Max of Three Numbers (Java)",
+    tags: ["JAVA", "CONDITIONALS", "COMPARISON"],
+    statement: [
+      "Find the maximum among three numbers.",
+      "Fix the code logic to correctly compute and print the maximum value.",
+    ],
+    input: "Three integers a, b, and c.",
+    output: "Print the maximum integer.",
+    constraints: ["-10⁹ ≤ a, b, c ≤ 10⁹"],
+    publicTestCases: [
+      { input: "10 25 15", output: "25" },
+      { input: "30 10 5", output: "30" },
+    ],
+    starter: {
+      C: "",
+      Python: "",
+      Java: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n        int max = a;\n        if (b > max)\n            max = b;\n        if (c > b)\n            max = c;\n        System.out.println(max);\n    }\n}`,
+    },
+  },
+  {
+    id: 9,
+    type: "DEBUGGING",
+    languageRequirement: "Java",
+    title: "Electricity Bill Calculator (Java)",
+    tags: ["JAVA", "CONDITIONALS", "MATH"],
+    statement: [
+      "Calculate electricity bill based on slabs: 0-100 units = $5/unit, 101-200 units = $7/unit, >200 units = $10/unit.",
+      "Fix the implementation to correctly calculate the total bill for all slabs.",
+    ],
+    input: "A single integer units.",
+    output: "Print total bill formatted to 2 decimal places.",
+    constraints: ["0 ≤ units ≤ 100000"],
+    publicTestCases: [
+      { input: "150", output: "850.00" },
+      { input: "250", output: "1700.00" },
+    ],
+    starter: {
+      C: "",
+      Python: "",
+      Java: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int units = sc.nextInt();\n        double bill = 0;\n        if (units > 200) {\n            bill = units * 10;\n        } else if (units > 100) {\n            bill = units * 7;\n        } else {\n            bill = units * 5;\n        }\n        System.out.printf("%.2f", bill);\n    }\n}`,
+    },
+  },
+  {
+    id: 10,
+    type: "DEBUGGING",
+    languageRequirement: "Java",
+    title: "Valid Triangle & Type (Java)",
+    tags: ["JAVA", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Check if a triangle is valid and classify it as Equilateral, Isosceles, or Scalene.",
+      "Fix the logic so that invalid side combinations and types are properly identified.",
+    ],
+    input: "Three side lengths a, b, and c.",
+    output: "Print 'Equilateral', 'Isosceles', 'Scalene', or 'Invalid'.",
+    constraints: ["1 ≤ a, b, c ≤ 10000"],
+    publicTestCases: [
+      { input: "5 5 5", output: "Equilateral" },
+      { input: "1 2 10", output: "Invalid" },
+    ],
+    starter: {
+      C: "",
+      Python: "",
+      Java: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n        if (a + b > c) {\n            if (a == b || b == c) {\n                System.out.println("Isosceles");\n            } else if (a == b && b == c) {\n                System.out.println("Equilateral");\n            } else {\n                System.out.println("Scalene");\n            }\n        } else {\n            System.out.println("Invalid");\n        }\n    }\n}`,
+    },
+  },
+
+  /* ---------------------- PYTHON DEBUGGING QUESTIONS ---------------------- */
+  {
+    id: 11,
+    type: "DEBUGGING",
+    languageRequirement: "Python",
+    title: "Leap Year Checker (Python)",
+    tags: ["PYTHON", "CONDITIONALS", "LOGIC"],
+    statement: [
+      "Check whether a given year is a leap year.",
+      "Fix the logic in the code below to accurately determine leap years.",
+    ],
+    input: "A single integer year.",
+    output: "Print 'Leap Year' or 'Not Leap Year'.",
+    constraints: ["1 ≤ year ≤ 10000"],
+    publicTestCases: [
+      { input: "1900", output: "Not Leap Year" },
+      { input: "2000", output: "Leap Year" },
+      { input: "2024", output: "Leap Year" },
+    ],
+    starter: {
+      C: "",
+      Python: `year = int(input())\nif year % 4 == 0 or year % 100 == 0 and year % 400 != 0:\n    print("Leap Year")\nelse:\n    print("Not Leap Year")`,
+      Java: "",
+    },
+  },
+  {
+    id: 12,
+    type: "DEBUGGING",
+    languageRequirement: "Python",
+    title: "Quadrant Finder (Python)",
+    tags: ["PYTHON", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Find the quadrant of a given point (x, y).",
+      "Fix the code logic to correctly determine the quadrant.",
+    ],
+    input: "Two integers x and y separated by a space.",
+    output: "Print 'Q1', 'Q2', 'Q3', 'Q4', or 'Origin'.",
+    constraints: ["-10000 ≤ x, y ≤ 10000"],
+    publicTestCases: [
+      { input: "-3 -5", output: "Q3" },
+      { input: "4 -2", output: "Q4" },
+    ],
+    starter: {
+      C: "",
+      Python: `x, y = map(int, input().split())\nif x > 0 and y > 0:\n    print("Q1")\nelif x < 0 and y > 0:\n    print("Q2")\nelif x < 0 or y < 0:\n    print("Q3")\nelif x > 0 and y < 0:\n    print("Q4")\nelse:\n    print("Origin")`,
+      Java: "",
+    },
+  },
+  {
+    id: 13,
+    type: "DEBUGGING",
+    languageRequirement: "Python",
+    title: "Max of Three Numbers (Python)",
+    tags: ["PYTHON", "CONDITIONALS", "COMPARISON"],
+    statement: [
+      "Find the maximum among three numbers.",
+      "Fix the implementation to correctly compute and print the maximum value.",
+    ],
+    input: "Three integers a, b, and c.",
+    output: "Print the maximum integer.",
+    constraints: ["-10⁹ ≤ a, b, c ≤ 10⁹"],
+    publicTestCases: [
+      { input: "10 25 15", output: "25" },
+      { input: "30 10 5", output: "30" },
+    ],
+    starter: {
+      C: "",
+      Python: `a, b, c = map(int, input().split())\nmaximum = a\nif b > maximum:\n    maximum = b\nif c > b:\n    maximum = c\nprint(maximum)`,
+      Java: "",
+    },
+  },
+  {
+    id: 14,
+    type: "DEBUGGING",
+    languageRequirement: "Python",
+    title: "Electricity Bill Calculator (Python)",
+    tags: ["PYTHON", "CONDITIONALS", "MATH"],
+    statement: [
+      "Calculate electricity bill based on slabs: 0-100 units = $5/unit, 101-200 units = $7/unit, >200 units = $10/unit.",
+      "Fix the calculation logic to handle slab-wise pricing.",
+    ],
+    input: "A single integer units.",
+    output: "Print total bill formatted to 2 decimal places.",
+    constraints: ["0 ≤ units ≤ 100000"],
+    publicTestCases: [
+      { input: "150", output: "850.00" },
+      { input: "250", output: "1700.00" },
+    ],
+    starter: {
+      C: "",
+      Python: `units = int(input())\nbill = 0.0\nif units > 200:\n    bill = units * 10\nelif units > 100:\n    bill = units * 7\nelse:\n    bill = units * 5\nprint(f"{bill:.2f}")`,
+      Java: "",
+    },
+  },
+  {
+    id: 15,
+    type: "DEBUGGING",
+    languageRequirement: "Python",
+    title: "Valid Triangle & Type (Python)",
+    tags: ["PYTHON", "CONDITIONALS", "GEOMETRY"],
+    statement: [
+      "Check if a triangle is valid and classify it as Equilateral, Isosceles, or Scalene.",
+      "Fix the logic so that invalid side combinations and types are properly identified.",
+    ],
+    input: "Three side lengths a, b, and c.",
+    output: "Print 'Equilateral', 'Isosceles', 'Scalene', or 'Invalid'.",
+    constraints: ["1 ≤ a, b, c ≤ 10000"],
+    publicTestCases: [
+      { input: "5 5 5", output: "Equilateral" },
+      { input: "1 2 10", output: "Invalid" },
+    ],
+    starter: {
+      C: "",
+      Python: `a, b, c = map(int, input().split())\nif a + b > c:\n    if a == b or b == c:\n        print("Isosceles")\n    elif a == b and b == c:\n        print("Equilateral")\n    else:\n        print("Scalene")\nelse:\n    print("Invalid")`,
+      Java: "",
+    },
+  },
+];
+
+/* ============================================================
+   LANGUAGE CONFIG
+============================================================ */
+
